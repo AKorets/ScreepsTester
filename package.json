@@ -1,0 +1,27 @@
+{
+  "name": "screepstester",
+  "version": "1.0.0",
+  "description": "Testing Screeps without UI",
+  "main": "index.js",
+  "dependencies": {
+    "log4js": "^6.3.0",
+    "temp-screeps-server-mockup": "^1.0.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "copy npm-shrinkwrap-correct.json npm-shrinkwrap.json"
+  },
+  "author": "Avram Korets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKorets/ScreepsTester.git"
+  },
+  "keywords": [
+    "screeps"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/AKorets/ScreepsTester/issues"
+  },
+  "homepage": "https://github.com/AKorets/ScreepsTester#readme"
+}
