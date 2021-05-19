@@ -8,6 +8,7 @@
     "temp-screeps-server-mockup": "^1.0.9"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "copy npm-shrinkwrap-correct.json npm-shrinkwrap.json"
   },
