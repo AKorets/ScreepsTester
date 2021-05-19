@@ -4,6 +4,7 @@
   "description": "Testing Screeps without UI",
   "main": "index.js",
   "dependencies": {
+    "lodash": "^4.17.21",
     "log4js": "^6.3.0",
     "temp-screeps-server-mockup": "^1.0.9"
   },

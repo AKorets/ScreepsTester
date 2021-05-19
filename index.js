@@ -5,7 +5,7 @@
     const fs = require("fs");
     var path = require('path');
     // Load the full build.
-    //var _ = require('lodash');
+    var _ = require('lodash');
     
     const log4js = require("log4js");
     log4js.configure({
