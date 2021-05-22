@@ -45,6 +45,11 @@
         "graceful-fs": "^4.1.6"
       }
     },
+    "lodash": {
+      "version": "4.17.21",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz",
+      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+    },
     "log4js": {
       "version": "6.3.0",
       "resolved": "https://registry.npmjs.org/log4js/-/log4js-6.3.0.tgz",
@@ -85,9 +90,9 @@
       }
     },
     "temp-screeps-server-mockup": {
-      "version": "1.0.9",
-      "resolved": "https://registry.npmjs.org/temp-screeps-server-mockup/-/temp-screeps-server-mockup-1.0.9.tgz",
-      "integrity": "sha512-v9ZQHZrbHN5QK/mJcR2BlkZU4auNnhyWwbd4jPUP0OK42XNafSPIao0XzBo3l75ZSxc4WHQdsch/iBuiuNrd+A==",
+      "version": "1.0.14",
+      "resolved": "https://registry.npmjs.org/temp-screeps-server-mockup/-/temp-screeps-server-mockup-1.0.14.tgz",
+      "integrity": "sha512-9sTr20lF4xPT7bKgeKntCa/GpGJgzNkCtLRvnJsHn+IGf/7ukwyFY2M4+JX3suKDN5YcodKiILdE5JDuAQtlOQ==",
       "requires": {
         "@types/fs-extra-promise": "^1.0.8",
         "@types/lodash": "^4.14.149",
@@ -12137,6 +12142,11 @@
           }
         }
       }
+    },
+    "universalify": {
+      "version": "0.1.2",
+      "resolved": "https://registry.npmjs.org/universalify/-/universalify-0.1.2.tgz",
+      "integrity": "sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg=="
     }
   }
 }
