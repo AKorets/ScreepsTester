@@ -110,7 +110,7 @@ function sleep(ms) {
         }        
         
         lastModifiedDB = fs.statSync(targetDb).mtimeMs;
-        logger.info('ticks finished. tick tooken : '+currentTick);
+        logger.info('ticks finished. tick taken : '+currentTick);
         _.each(await bot.notifications, ({ message, type }) => logger.info('[notification]', message));
         
         
