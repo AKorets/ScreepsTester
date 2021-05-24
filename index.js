@@ -55,7 +55,8 @@ function sleep(ms) {
     logger.info("started");
     
     try{
-        var serverPath = 'C:/Program Files (x86)/Steam/steamapps/common/Screeps/server';
+        //var serverPath = 'C:/Program Files (x86)/Steam/steamapps/common/Screeps/server';
+        var serverPath = './server';
         const server = new ScreepsServer({path:serverPath, useAssets:false});
         var targetDb = serverPath+'/db.json';
         
