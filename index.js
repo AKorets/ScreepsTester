@@ -64,7 +64,7 @@ function sleep(ms) {
         lastModifiedDB = fs.statSync(targetDb).mtimeMs;
          
         _.each(await bot.notifications, ({ message, type }) => console.log('[notification]', message));
-        console.log('ticks finished. tick tooken : '+currentTick);        
+        console.log('the current test run finished. ticks since start : '+currentTick);        
         
         console.log('waiting for database synch');
         while(fs.statSync(targetDb).mtimeMs==lastModifiedDB)
