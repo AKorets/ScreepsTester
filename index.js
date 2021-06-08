@@ -1,3 +1,12 @@
+const log4js = require("log4js");
+log4js.configure({
+  appenders: { console: { type: 'console'},
+  log: { type: "file", filename: "simple.log" } },
+  categories: { default: { appenders: ["log","console"], level: "trace" } }
+});
+const logger = log4js.getLogger("log");
+
+
 const fs = require("fs");
 
 function readCode(botPath){
@@ -32,8 +41,8 @@ function sleep(ms) {
     // Load the full build.
     var _ = require('lodash');
 
-    console.log("--------------------------------------------");
-    console.log("started");
+    logger.info("--------------------------------------------");
+    logger.info("started");
     
     try{
         var serverPath = './server';
@@ -47,9 +56,9 @@ function sleep(ms) {
         //create bot at room W1N4 using javascript from folder ./tutorial_1_bot
         let bot = await createBot(server, 'W1N4', './tutorial_1_bot');        
         
-        // Print console logs every tick
+        // Print logger.infos every tick
         bot.on('console', (logs, results, userid, username) => {
-            _.each(logs, line => console.log(`[console|${username}|${currentTick}]`, line));
+            _.each(logs, line => logger.info(`[console|${username}|${currentTick}]`, line));
         });
         
         var currentTick;
@@ -63,15 +72,15 @@ function sleep(ms) {
         
         lastModifiedDB = fs.statSync(targetDb).mtimeMs;
          
-        _.each(await bot.notifications, ({ message, type }) => console.log('[notification]', message));
-        console.log('the current test run finished. ticks since start : '+currentTick);        
+        _.each(await bot.notifications, ({ message, type }) => logger.info('[notification]', message));
+        logger.info('the current test run finished. ticks since start : '+currentTick);        
         
-        console.log('waiting for database synch');
+        logger.info('waiting for database synch');
         while(fs.statSync(targetDb).mtimeMs==lastModifiedDB)
           sleep(2000);
       
         server.stop();
-        console.log("finished");
+        logger.info("finished");
     } catch (err) {
         logger.error(err);
         console.error(err);
