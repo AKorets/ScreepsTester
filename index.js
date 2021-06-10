@@ -1,7 +1,7 @@
 const log4js = require("log4js");
 log4js.configure({
   appenders: { console: { type: 'console'},
-  log: { type: "file", filename: "simple.log" } },
+  log: { type: "fileSync", filename: "simple.log" } },
   categories: { default: { appenders: ["log","console"], level: "trace" } }
 });
 const logger = log4js.getLogger("log");
@@ -80,11 +80,12 @@ function sleep(ms) {
           sleep(2000);
       
         server.stop();
-        logger.info("finished");
     } catch (err) {
         logger.error(err);
         console.error(err);
     } finally {
+        logger.info("finished");
+        log4js.shutdown();
         process.exit();
     }
 }());
