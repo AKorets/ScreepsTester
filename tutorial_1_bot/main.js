@@ -1,6 +1,17 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 
+
+function createCreep(gameSpawner, role, body){
+    var newName = role + Game.time;
+    let preResult = gameSpawner.spawnCreep(body, newName, {dryRun:true});
+    
+    if(preResult == OK){
+        console.log('Spawning ' + newName);
+        let result = gameSpawner.spawnCreep(body, newName, {memory: {role:role}});
+    }
+}
+
 module.exports.loop = function () {
 
     for(var name in Memory.creeps) {
@@ -11,20 +22,12 @@ module.exports.loop = function () {
     }
 
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
-    console.log('Harvesters: ' + harvesters.length);
-
     if(harvesters.length < 2) {
-        var newName = 'Harvester' + Game.time;
-        console.log('Spawning new harvester: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
-            {memory: {role: 'harvester'}});
+        createCreep(Game.spawns['Spawn1'], 'harvester', [WORK,CARRY,MOVE]);
     }else {
          var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
          if(upgraders.length < 2){
-         var newName = 'Upgrader' + Game.time;
-         console.log('Spawning new upgrader: ' + newName);
-                    Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
-                        {memory: {role: 'upgrader'}});
+             createCreep(Game.spawns['Spawn1'], 'upgrader', [WORK,CARRY,MOVE]);
         }
     }
 
@@ -52,4 +55,9 @@ module.exports.loop = function () {
             controller.pos.x + 1,
             controller.pos.y,
             {align: 'left', opacity: 0.8});
+            
+    if(Memory.controllerLastLevel != controller.level){
+        Memory.controllerLastLevel = controller.level;    
+        console.log('detected new controller level '+controller.level);
+    }
 }

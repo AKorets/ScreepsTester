@@ -64,7 +64,7 @@ function sleep(ms) {
         var currentTick;
         const stats = fs.statSync(targetDb).mtimeMs;
         
-        for (let i = 0; i < 350; i++)
+        for (let i = 0; i < 400; i++)
         {
             currentTick = await server.world.gameTime;        
             await server.tick();
